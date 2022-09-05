@@ -70,12 +70,22 @@ class Game:
     space_ship: SpaceShip
     observer: CollisionObserver
 
-    def __init__(self):
+    def __init__(self) -> None:
+        self.invaders = Invaders()
+        self.asteroids = Asteroids()
+
+        self.space_ship = SpaceShip()
+        self.score = Score()
+
+        self.observer = CollisionObserver()
+        self._register_observers()
+
+    def _register_observers(self) -> None:
         self.observer.register(self.asteroids)
         self.observer.register(self.invaders)
         self.observer.register(self.score)
 
-    def run(self):
+    def run(self) -> None:
         while True:
             command = self.get_command()  # type: ignore
             if command == "LEFT":
@@ -86,3 +96,8 @@ class Game:
                 self.space_ship.shoot()
             else:
                 break
+
+
+if __name__ == "__main__":
+    game = Game()
+    game.run()
