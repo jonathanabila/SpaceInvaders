@@ -6,6 +6,7 @@ authors = ["Jonathan Abila <31670446+jonathanabila@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+SQLAlchemy = "^1.4.40"
 
 [tool.poetry.dev-dependencies]
 tryceratops = "^1.1.0"
